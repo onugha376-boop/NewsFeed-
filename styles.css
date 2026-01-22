@@ -1,0 +1,113 @@
+:root{
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #0d6efd;
+  --card: #ffffff;
+  --hero-bg-img: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?w=1600&q=80');
+  --accent: #6f42c1;
+  --glass: rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"]{
+  --bg: #0b1220;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --primary: #4ea8ff;
+  --card: #0f1724;
+  --hero-bg-img: none;
+  --accent: #7c5cff;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background .25s ease, color .25s ease;
+}
+
+.site-header .navbar { background: transparent; }
+.logo{width:40px;height:40px;border-radius:8px;object-fit:cover}
+
+/* Hero */
+.hero{
+  background-image: linear-gradient(135deg, rgba(13,110,253,0.85), rgba(111,66,193,0.85)), var(--hero-bg-img);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 5rem 0;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+
+/* Cards and layout */
+.card{
+  background: var(--card);
+  border: none;
+  color: var(--text);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{ transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+.featured-card{
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  display:flex;
+  align-items:flex-end;
+  color:white;
+  padding:1.25rem;
+  background-size:cover;
+  background-position:center;
+}
+
+.news-card-img{
+  height:160px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.news-meta{font-size:0.85rem;color:var(--muted)}
+
+.cta-section{
+  background: linear-gradient(90deg, rgba(13,110,253,0.95), rgba(111,66,193,0.95));
+  padding:3rem 0;
+}
+
+/* Drop zone */
+#dropZone{ cursor: pointer; background: var(--glass); transition: background .15s ease; }
+#dropZone.dragover{ background: rgba(0,0,0,0.06); }
+
+/* small utilities */
+.small-muted{color:var(--muted);font-size:0.85rem}
+
+/* Animations (Animate.css like minimal) */
+.fade-in { animation: fadeIn .45s ease both; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to { opacity:1; transform:none;} }
+
+/* Responsive tweaks */
+@media (max-width:767px){
+  .hero{padding:2.5rem 0}
+  .featured-card{height:220px}
+  .news-card-img{height:140px}
+}
+
+/* Accessibility focus */
+a:focus, button:focus, input:focus { outline: 3px solid rgba(13,110,253,0.18); outline-offset: 2px; }
+
+/* Dark theme specifics for readability */
+[data-theme="dark"] .card { background: #0f1724; color: var(--text); }
+[data-theme="dark"] .hero { color: #fff; }
+
+/* Trending badge */
+.trending-badge { background: linear-gradient(90deg,var(--primary),var(--accent)); color: #fff; padding: .25rem .5rem; border-radius: 999px; font-weight:600; font-size:.8rem; }
+
+/* Tooltip-like small list for likes */
+.like-list { font-size:0.85rem; color:var(--muted); }
+
+/* Pagination */
+.pagination { justify-content:center; margin-top:1rem; }

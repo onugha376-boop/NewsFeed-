@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PulseNews — Responsive News Platform</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <header class="site-header sticky-top shadow-sm" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwpofIpFIfjEb3Y-1AfM9M-el1AkddzpaEAApll6zEOg&s=10" alt="PulseNews logo" class="me-2 logo">
+          <span class="fw-bold">PulseNews</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+              <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="">All</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="politics">Politics</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="sports">Sports</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="business">Economic</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="religion">Religious</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="technology">Technology</a></li>
+                <li><a class="dropdown-item cat-link" href="#explore" data-cat="entertainment">Entertainment</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+            <li class="nav-item d-flex align-items-center ms-3">
+              <button id="themeBtn" class="btn btn-outline-secondary btn-sm me-2" aria-label="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+            </li>
+
+            <li id="authArea" class="nav-item d-flex gap-2 ms-2">
+              <button id="loginBtn" class="btn btn-sm btn-primary">Login</button>
+              <button id="signupBtn" class="btn btn-sm btn-outline-primary">Sign up</button>
+            </li>
+
+            <li id="userArea" class="nav-item d-none ms-2">
+              <div class="d-flex align-items-center gap-2">
+                <span id="welcomeUser" class="small text-muted"></span>
+                <button id="dashboardBtn" class="btn btn-sm btn-outline-success">Dashboard</button>
+                <button id="logoutBtn" class="btn btn-sm btn-outline-danger">Logout</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero text-center" aria-labelledby="heroTitle">
+      <div class="container">
+        <h2 id="heroTitle" class="display-5 fw-bold">Stay informed. Stay ahead.</h2>
+        <p class="lead">Top stories from around the world, curated and updated in real time.</p>
+        <div class="mt-4 d-flex justify-content-center gap-2">
+          <button id="ctaPostBtn" class="btn btn-lg btn-light text-primary" aria-label="Post news">
+            <i class="fa-solid fa-pen-nib me-2"></i> Post News
+          </button>
+          <a href="#explore" class="btn btn-lg btn-outline-light" aria-label="Explore news">
+            <i class="fa-solid fa-newspaper me-2"></i> Explore News
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5" aria-labelledby="aboutTitle">
+      <div class="container">
+        <h3 id="aboutTitle">About Us</h3>
+        <p class="text-muted">PulseNews is a lightweight, responsive news platform built with HTML, CSS and JavaScript. It fetches public news from an external API and lets registered users post, comment, and interact with stories.</p>
+
+        <div class="row mt-4">
+          <div class="col-md-4 text-center">
+            <i class="fa-solid fa-globe fa-2x text-primary mb-2" aria-hidden="true"></i>
+            <h6>Global Coverage</h6>
+            <p class="text-muted">Headlines from trusted sources worldwide.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <i class="fa-solid fa-users fa-2x text-success mb-2" aria-hidden="true"></i>
+            <h6>Community</h6>
+            <p class="text-muted">Post local stories and join discussions.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <i class="fa-solid fa-bell fa-2x text-warning mb-2" aria-hidden="true"></i>
+            <h6>Alerts</h6>
+            <p class="text-muted">Save searches and follow topics you care about.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured (carousel) -->
+    <section id="featured" class="py-4 bg-light" aria-labelledby="featuredTitle">
+      <div class="container">
+        <h3 id="featuredTitle" class="mb-3 text-dark">Featured</h3>
+        <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+          <div class="carousel-inner" id="featuredInner" role="listbox"></div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev" aria-label="Previous featured">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next" aria-label="Next featured">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore / Filters -->
+    <section id="explore" class="py-5" aria-labelledby="exploreTitle">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+          <div class="flex-grow-1">
+            <h3 id="exploreTitle">Explore News</h3>
+            <p class="text-muted">Search and filter by country, category or keyword.</p>
+          </div>
+
+          <div class="filters d-flex gap-2 align-items-center">
+            <select id="countryFilter" class="form-select form-select-sm" aria-label="Select country" disabled>
+              <option value="">All countries</option>
+              <option value="ng">Nigeria</option>
+              <option value="us">United States</option>
+              <option value="gb">United Kingdom</option>
+              <option value="ca">Canada</option>
+              <option value="au">Australia</option>
+            </select>
+
+            <div class="btn-group btn-group-sm" role="tablist" aria-label="Category tabs">
+              <button class="btn btn-outline-secondary cat-tab active" data-cat="">All</button>
+              <button class="btn btn-outline-secondary cat-tab" data-cat="politics">Politics</button>
+              <button class="btn btn-outline-secondary cat-tab" data-cat="sports">Sports</button>
+              <button class="btn btn-outline-secondary cat-tab" data-cat="business">Economic</button>
+              <button class="btn btn-outline-secondary cat-tab" data-cat="technology">Tech</button>
+            </div>
+
+            <input id="searchInput" class="form-control form-control-sm" placeholder="Search headlines or descriptions" aria-label="Search news">
+            <button id="searchBtn" class="btn btn-sm btn-primary">Search</button>
+          </div>
+        </div>
+
+        <hr>
+
+        <div id="trendingWrap" class="mb-3" aria-live="polite"></div>
+
+        <div id="newsGrid" class="row g-4" aria-live="polite"></div>
+
+        <div id="loadMoreWrap" class="text-center mt-4">
+          <button id="loadMoreBtn" class="btn btn-outline-primary">Load more</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA to post -->
+    <section class="py-5 cta-section text-center text-white">
+      <div class="container">
+        <h3>Have a story to share?</h3>
+        <p class="mb-3">If you have a local scoop or breaking news, post it and let the community engage.</p>
+        <button id="ctaPostBtn2" class="btn btn-lg btn-light text-primary">Post a News</button>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-5" aria-labelledby="servicesTitle">
+      <div class="container">
+        <h3 id="servicesTitle" class="text-center mb-4">Services</h3>
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-3">
+              <i class="fa-solid fa-list-check fa-2x text-primary mb-3" aria-hidden="true"></i>
+              <h5>Curated Headlines</h5>
+              <p class="text-muted">Top stories from trusted sources, updated frequently.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-3">
+              <i class="fa-solid fa-user-pen fa-2x text-success mb-3" aria-hidden="true"></i>
+              <h5>Community Posts</h5>
+              <p class="text-muted">Registered users can post, comment, and interact with stories.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-3">
+              <i class="fa-solid fa-bell fa-2x text-warning mb-3" aria-hidden="true"></i>
+              <h5>Custom Alerts</h5>
+              <p class="text-muted">Save searches and follow topics you care about.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light" aria-labelledby="contactTitle">
+      <div class="container">
+        <h3 id="contactTitle" class="text-dark">Contact</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-muted">For support, partnerships, or press inquiries, reach out to us.</p>
+            <ul class="list-unstyled text-muted">
+              <li><i class="fa-solid fa-envelope me-2"></i>hello@pulsenews.example</li>
+              <li><i class="fa-solid fa-phone me-2"></i>+234 800 000 0000</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <form id="contactForm">
+              <div class="mb-2">
+                <input class="form-control" placeholder="Your name" required aria-label="Your name">
+              </div>
+              <div class="mb-2">
+                <input class="form-control" placeholder="Email" type="email" required aria-label="Email">
+              </div>
+              <div class="mb-2">
+                <textarea class="form-control" rows="3" placeholder="Message" required aria-label="Message"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-3 text-center">
+    <div class="container">
+      <small class="text-muted">© <span id="year"></span> OEN Michael. Built with Bootstrap & vanilla JS.</small>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="loginForm" class="p-3" aria-label="Login form">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">Email</label>
+              <input id="loginEmail" type="email" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Password</label>
+              <input id="loginPassword" type="password" class="form-control" required>
+            </div>
+            <div id="loginError" class="text-danger small d-none" role="alert"></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="signupForm" class="p-3" aria-label="Sign up form">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign up</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">Name</label>
+              <input id="signupName" type="text" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Email</label>
+              <input id="signupEmail" type="email" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Password</label>
+              <input id="signupPassword" type="password" class="form-control" required>
+            </div>
+            <div id="signupError" class="text-danger small d-none" role="alert"></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">Create account</button>
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post News Modal (drag & drop + preview) -->
+  <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <form id="postForm" class="p-3" aria-label="Post news form">
+          <div class="modal-header">
+            <h5 class="modal-title">Post News</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">Headline</label>
+              <input id="postHeadline" class="form-control" required>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label">Cover image</label>
+              <div id="dropZone" class="border rounded p-3 text-center" aria-label="Image upload drop zone">
+                <input id="postImage" type="file" accept="image/*" class="d-none" required>
+                <p class="mb-1">Drag & drop an image here or <button id="pickImageBtn" type="button" class="btn btn-link p-0">choose a file</button></p>
+                <img id="imagePreview" src="" alt="" class="img-fluid mt-2 d-none" style="max-height:220px; object-fit:cover;">
+              </div>
+              <small class="text-muted d-block">Image will be stored locally for your account only.</small>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label">Category</label>
+              <select id="postCategory" class="form-select" required>
+                <option value="general">General</option>
+                <option value="politics">Political</option>
+                <option value="sports">Sports</option>
+                <option value="business">Economic</option>
+                <option value="religion">Religious</option>
+                <option value="technology">Technology</option>
+                <option value="entertainment">Entertainment</option>
+              </select>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label">Description</label>
+              <textarea id="postDescription" class="form-control" rows="6" required></textarea>
+            </div>
+
+            <div id="postError" class="text-danger small d-none" role="alert"></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit">Publish</button>
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- View News Modal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-4" id="viewBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Modal -->
+  <div class="modal fade" id="dashboardModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Dashboard</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" id="dashboardBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
